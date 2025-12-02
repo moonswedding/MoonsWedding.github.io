@@ -1,231 +1,265 @@
-<!doctype html>
-<html lang="fa" dir="rtl">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>عروسی Moon &amp; [نام دوم] — دعوت</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're Invited | Wedding of Mahtab & Mahyar</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for Inter and Great Vibes fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Great+Vibes&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000; 
+        }
+        
+        /* Custom class for the beautiful script font */
+        .font-script {
+            font-family: 'Great Vibes', cursive;
+        }
 
-  <!-- SEO & Social -->
-  <meta name="description" content="دعوت به مراسم عروسی Moon و [نام دوم]. تاریخ، مکان، برنامه و RSVP" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="عروسی Moon &amp; [نام دوم]" />
-  <meta property="og:description" content="دعوت به مراسم عروسی ما — لطفاً حضور خود را اطلاع بدهید" />
-  <meta property="og:image" content="images/cover.jpg" />
-  <meta property="og:site_name" content="Moon's Wedding" />
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --accent:#6b46c1;
-      --muted:#6b7280;
-      --bg:#fff;
-      --card:#fff;
-      --glass: rgba(255,255,255,0.6);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:'Vazirmatn',system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-      background: linear-gradient(180deg,#f7f7fb 0%, #fff 40%);
-      color:#111827;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.6;
-    }
-
-    /* container */
-    .wrap{max-width:1000px;margin:32px auto;padding:20px}
-
-    header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
-    .logo{
-      width:84px;height:84px;border-radius:18px;background:linear-gradient(135deg,var(--accent),#4c51bf);
-      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:22px;box-shadow:0 8px 30px rgba(107,70,193,0.12)
-    }
-    h1{margin:0;font-size:26px}
-    p.lead{margin:6px 0 0;color:var(--muted)}
-
-    /* hero */
-    .hero{
-      display:grid;grid-template-columns:1fr;gap:18px;margin:24px 0;padding:20px;border-radius:16px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
-      box-shadow: 0 6px 24px rgba(15,23,42,0.06);
-      align-items:center;
-    }
-    .hero .meta{display:flex;flex-direction:column;gap:8px}
-    .date-pill{display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(107,70,193,0.08);color:var(--accent);font-weight:600}
-    .hero img{width:100%;height:auto;border-radius:12px;object-fit:cover}
-
-    /* sections */
-    section{margin-top:20px;background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
-    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .center{text-align:center}
-
-    /* gallery */
-    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-    .gallery img{width:100%;height:120px;object-fit:cover;border-radius:8px}
-
-    /* RSVP form */
-    form.rsvp{display:flex;flex-direction:column;gap:8px}
-    input,textarea,select{padding:10px;border:1px solid #e6e8ef;border-radius:8px;font-size:14px}
-    button{background:var(--accent);color:white;padding:10px 14px;border-radius:10px;border:0;font-weight:600;cursor:pointer}
-    .muted{color:var(--muted);font-size:13px}
-
-    /* footer */
-    footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px}
-
-    /* responsive */
-    @media (max-width:780px){
-      .grid2{grid-template-columns:1fr}
-      .gallery{grid-template-columns:repeat(2,1fr)}
-      header{gap:12px}
-      .logo{width:64px;height:64px}
-    }
-  </style>
+        /* Custom class for the glass effect overlay */
+        .glass-overlay {
+            backdrop-filter: blur(5px);
+            background-color: rgba(0, 0, 0, 0.65);
+        }
+    </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo">M &amp; [N]</div>
-      <div>
-        <h1>دعوت به جشن عروسی Moon &amp; [نام دوم]</h1>
-        <p class="lead">ما خوشحالیم که این روز ویژه را با شما تقسیم کنیم — حضور شما برای ما ارزشمند است.</p>
-      </div>
-    </header>
 
-    <main>
-      <div class="hero">
-        <div class="meta">
-          <span class="date-pill">شنبه — 12 ژوئن 2026</span>
-          <h2 style="margin:4px 0 0">مکان: باغ گل‌ماه — تهران</h2>
-          <p class="muted" style="margin:8px 0 0">ساعت شروع: 17:00 — پذیرش از ساعت 16:30</p>
-        </div>
+    <!-- Main Container -->
+    <div id="app" class="relative min-h-screen max-w-screen-md mx-auto overflow-hidden shadow-2xl">
 
-        <!-- کاور: جایگزین کن با مسیر عکس خودت -->
-        <img src="images/cover.jpg" alt="Moon &amp; [نام دوم] — Wedding cover" />
-      </div>
+        <!-- 1. INTRO SCREEN: Animated Names, Video, and CTA -->
+        <section id="introScreen" class="h-screen w-full relative flex flex-col justify-center items-center bg-black transition-opacity duration-1000">
 
-      <!-- برنامه مراسم -->
-      <section>
-        <h3>برنامه مراسم</h3>
-        <div class="grid2" style="align-items:start">
-          <div>
-            <ul style="margin:8px 0;padding-left:18px;">
-              <li><strong>16:30</strong> — پذیرش میهمانان</li>
-              <li><strong>17:00</strong> — شروع مراسم</li>
-              <li><strong>17:30</strong> — عکس و برنامه‌ی صحنه</li>
-              <li><strong>19:00</strong> — شام و پذیرایی</li>
-              <li><strong>21:30</strong> — رقص و جشن</li>
-            </ul>
-          </div>
-          <div>
-            <p class="muted">در صورت نیاز به هماهنگی خاص (مثلاً دسترسی ویژه یا میز کودکان) لطفاً در فرم RSVP ذکر کنید یا ایمیل بزنید.</p>
-            <p style="margin:8px 0 0"><strong>ایمیل هماهنگی:</strong> <a href="mailto:hello@moonswedding.io">hello@moonswedding.io</a></p>
-          </div>
-        </div>
-      </section>
+            <!-- Name Animation Layer -->
+            <div id="nameLayer" class="absolute inset-0 flex flex-col justify-center items-center z-10 bg-black text-white transition-opacity duration-1000 opacity-0">
+                <!-- Name 1: Mahtab (Slides in from Left) -->
+                <h1 id="name1" class="font-script text-7xl sm:text-8xl tracking-wide mb-4 opacity-0 transform -translate-x-full transition-all duration-1000 ease-out text-white">
+                    Mahtab
+                </h1>
+                
+                <!-- Ampersand -->
+                <p id="ampersand" class="text-4xl font-light mb-4 opacity-0 transition-opacity duration-1000 delay-500 text-white">&</p>
+                
+                <!-- Name 2: Mahyar (Slides in from Right) -->
+                <h1 id="name2" class="font-script text-7xl sm:text-8xl tracking-wide opacity-0 transform translate-x-full transition-all duration-1000 ease-out delay-300 text-white">
+                    Mahyar
+                </h1>
+            </div>
 
-      <!-- نقشه (جایگزین iframe بر حسب مکان خود) -->
-      <section>
-        <h3>نقشه</h3>
-        <p class="muted">برای دیدن مسیر، روی نقشه کلیک کنید.</p>
-        <!-- اگر می‌خواهی iframe گوگل‌مپ قرار بدی، آدرس را جایگزین کن -->
-        <div style="border-radius:10px;overflow:hidden;margin-top:10px">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!2m..." 
-            width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </section>
+            <!-- Video Background -->
+            <video id="weddingVideo" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-1000" autoplay muted playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-slow-motion-of-bride-and-groom-walk-in-the-forest-4796-large.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
 
-      <!-- گالری -->
-      <section>
-        <h3>گالری</h3>
-        <div class="gallery" style="margin-top:10px">
-          <img src="images/photo1.jpg" alt="photo 1">
-          <img src="images/photo2.jpg" alt="photo 2">
-          <img src="images/photo3.jpg" alt="photo 3">
-          <img src="images/photo4.jpg" alt="photo 4">
-          <img src="images/photo5.jpg" alt="photo 5">
-          <img src="images/photo6.jpg" alt="photo 6">
-        </div>
-      </section>
+            <!-- Black Glass Overlay -->
+            <div id="overlay" class="glass-overlay absolute inset-0 flex flex-col justify-center items-center opacity-0 transition-opacity duration-1000 z-20">
+                <p class="text-gray-300 text-lg mb-2 font-light tracking-widest uppercase">The Beginning</p>
+                <h2 class="text-5xl sm:text-6xl font-script text-white text-center tracking-wide mb-8">
+                    You Are Cordially Invited
+                </h2>
+                <button id="moreBtn" class="px-8 py-3 bg-pink-500 text-white font-semibold text-lg rounded-full shadow-lg hover:bg-pink-600 transition duration-300 transform hover:scale-105">
+                    More Details & RSVP
+                </button>
+            </div>
+        </section>
 
-      <!-- فرم RSVP -->
-      <section>
-        <h3>تأیید حضور (RSVP)</h3>
-        <form class="rsvp" id="rsvpForm">
-          <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <input type="text" id="name" placeholder="نام و نام خانوادگی *" required style="flex:1">
-            <input type="tel" id="phone" placeholder="شماره تماس" style="flex:1">
-          </div>
+        <!-- 2. INFORMATION SCREEN -->
+        <section id="infoScreen" class="absolute inset-0 h-screen w-full bg-white/95 hidden overflow-y-auto pb-20 p-6 sm:p-8">
 
-          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
-            <select id="attend" required style="flex:1">
-              <option value="">آیا شرکت می‌کنید؟ *</option>
-              <option value="yes">بله — حضور دارم</option>
-              <option value="no">متأسفم — نمی‌توانم بیایم</option>
-            </select>
-            <input type="number" id="guests" placeholder="تعداد همراه (در صورت وجود)" min="0" style="width:170px">
-          </div>
+            <div class="max-w-md mx-auto">
+                <button id="backBtn" class="mt-4 mb-8 text-gray-600 hover:text-pink-600 flex items-center transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Back to Cover
+                </button>
 
-          <textarea id="note" placeholder="یادداشت / درخواست ویژه (اختیاری)" rows="3"></textarea>
+                <h1 class="font-script text-6xl text-pink-600 mb-2">Mahtab & Mahyar</h1>
+                <h2 class="text-2xl font-light text-gray-700 mb-10">Wedding Day Details</h2>
 
-          <div style="display:flex;gap:8px;align-items:center">
-            <button type="submit">ارسال RSVP</button>
-            <div class="muted" id="rsvpStatus" style="margin-left:8px"></div>
-          </div>
+                <!-- Details Sections... -->
+                <div class="bg-white p-6 rounded-xl shadow-md mb-6 border-t-4 border-pink-400">
+                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">The Date</p>
+                    <p class="text-3xl font-bold text-gray-900 mt-1">Saturday, May 17, 2026</p>
+                    <p class="text-xl text-gray-600">Ceremony at 4:00 PM</p>
+                </div>
 
-          <p class="muted" style="margin-top:8px">یا اگر ترجیح می‌دهی، ایمیل بفرست: <a href="mailto:hello@moonswedding.io">hello@moonswedding.io</a></p>
-        </form>
-      </section>
+                <div class="bg-white p-6 rounded-xl shadow-md mb-6 border-t-4 border-purple-400">
+                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">The Venue</p>
+                    <p class="text-xl font-semibold text-gray-900 mt-1">The Grand Oak Estate</p>
+                    <p class="text-gray-600">123 Sunset Blvd, City Name, State 12345</p>
+                    <a href="#" class="mt-3 inline-flex items-center text-blue-500 hover:text-blue-700 transition-colors">
+                        View on Map
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    </a>
+                </div>
 
-    </main>
+                <div class="bg-white p-6 rounded-xl shadow-md mb-6 border-t-4 border-teal-400">
+                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">RSVP</p>
+                    <p class="text-xl font-semibold text-gray-900 mt-1">Please confirm by April 1, 2026</p>
+                    <p class="text-gray-600 mb-4">Click the link below to let us know if you can make it!</p>
+                    <a href="#" class="px-6 py-2 bg-teal-500 text-white font-semibold rounded-lg shadow-md hover:bg-teal-600 transition duration-300">
+                        Submit RSVP
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
 
-    <footer>
-      <p>با عشق — Moon &amp; [نام دوم] · © <span id="year"></span></p>
-    </footer>
-  </div>
+    <!-- Firebase and Tone.js Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/tone@14.8.49/build/Tone.min.js"></script>
+    <script type="module">
+        // --- MANDATORY FIREBASE SETUP ---
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        setLogLevel('Debug');
 
-  <script>
-    // تاریخ خودکار در فوتر
-    document.getElementById('year').textContent = new Date().getFullYear();
+        const _appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const _firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const _initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : undefined;
 
-    // ساده: ذخیره محلی RSVP و نمایش پیام
-    (function(){
-      const form = document.getElementById('rsvpForm');
-      const status = document.getElementById('rsvpStatus');
+        let db, auth;
 
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        const data = {
-          name: document.getElementById('name').value.trim(),
-          phone: document.getElementById('phone').value.trim(),
-          attend: document.getElementById('attend').value,
-          guests: document.getElementById('guests').value || '0',
-          note: document.getElementById('note').value.trim(),
-          time: new Date().toISOString()
+        if (Object.keys(_firebaseConfig).length > 0) {
+            const app = initializeApp(_firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+
+            onAuthStateChanged(auth, (user) => {
+                if (!user) {
+                    if (_initialAuthToken) {
+                        signInWithCustomToken(auth, _initialAuthToken).catch(e => {
+                            console.error("Custom token sign-in failed:", e);
+                            signInAnonymously(auth).catch(err => console.error("Anonymous sign-in failed:", err));
+                        });
+                    } else {
+                        signInAnonymously(auth).catch(err => console.error("Anonymous sign-in failed:", err));
+                    }
+                }
+            });
+        }
+
+        // --- CORE APPLICATION LOGIC ---
+        const introScreen = document.getElementById('introScreen');
+        const infoScreen = document.getElementById('infoScreen');
+        const nameLayer = document.getElementById('nameLayer');
+        const weddingVideo = document.getElementById('weddingVideo');
+        const overlay = document.getElementById('overlay');
+        const moreBtn = document.getElementById('moreBtn');
+        const backBtn = document.getElementById('backBtn');
+
+        let isVideoPlaying = false;
+        let synth;
+
+        // Audio Setup
+        const initAudio = async () => {
+            if (!synth) {
+                await Tone.start();
+                weddingVideo.muted = false;
+                synth = new Tone.PolySynth(Tone.DuoSynth, {
+                    oscillator: { type: "sawtooth" },
+                    envelope: { attack: 0.1, decay: 0.5, sustain: 0.3, release: 0.5 }
+                }).toDestination();
+                console.log("Audio Context started.");
+            }
         };
-        if(!data.name || !data.attend){
-          status.textContent = 'لطفاً نام و وضعیت حضور را تکمیل کنید.';
-          return;
-        }
 
-        // ذخیره در localStorage (برای نمونه). در صورت داشتن back-end، اینجا fetch بزن.
-        try{
-          const key = 'moons_wedding_rsvp';
-          const existing = JSON.parse(localStorage.getItem(key) || '[]');
-          existing.push(data);
-          localStorage.setItem(key, JSON.stringify(existing));
-          status.textContent = 'تشکر! پاسخ شما ثبت شد.';
-          form.reset();
-          setTimeout(()=> status.textContent = '', 4000);
-        }catch(err){
-          status.textContent = 'خطا هنگام ذخیره. لطفاً دوباره تلاش کنید یا ایمیل بزنید.';
-        }
-      });
-    })();
-  </script>
+        const playBGM = () => {
+            const notes = ["C4", "G3", "A3", "F3"];
+            let noteIndex = 0;
+            Tone.Transport.scheduleRepeat(time => {
+                const note = notes[noteIndex % notes.length];
+                synth.triggerAttackRelease(note, "2m", time, 0.4);
+                noteIndex++;
+            }, "2m");
+            Tone.Transport.bpm.value = 40;
+            Tone.Transport.start();
+        };
+
+        const stopBGM = () => {
+            if (synth) {
+                Tone.Transport.stop();
+                synth.releaseAll();
+            }
+        };
+
+        const showOverlay = () => {
+            if (isVideoPlaying) {
+                isVideoPlaying = false;
+                weddingVideo.pause();
+                weddingVideo.classList.add('opacity-50'); 
+                stopBGM(); 
+                overlay.classList.remove('opacity-0');
+            }
+        };
+
+        const startIntroSequence = () => {
+            // Animation: Remove initial specific translations
+            setTimeout(() => {
+                nameLayer.classList.remove('opacity-0');
+                
+                // Mahtab comes from LEFT (remove -translate-x-full)
+                document.getElementById('name1').classList.remove('opacity-0', '-translate-x-full');
+                
+                // Ampersand
+                document.getElementById('ampersand').classList.remove('opacity-0');
+                
+                // Mahyar comes from RIGHT (remove translate-x-full)
+                document.getElementById('name2').classList.remove('opacity-0', 'translate-x-full');
+            }, 50);
+
+            // Sequence Timing
+            setTimeout(async () => {
+                nameLayer.classList.add('opacity-0');
+                weddingVideo.classList.remove('opacity-0'); 
+                
+                isVideoPlaying = true;
+                
+                await initAudio(); 
+                if (Tone.Transport.state !== 'started') {
+                    playBGM();
+                }
+
+                weddingVideo.play().catch(e => console.log("Video play failed (autostart) but will continue muted."));
+                
+            }, 2000);
+
+            weddingVideo.onended = showOverlay;
+        };
+
+        moreBtn.addEventListener('click', () => {
+            introScreen.classList.add('hidden');
+            infoScreen.classList.remove('hidden');
+            weddingVideo.pause(); 
+            stopBGM();
+        });
+
+        backBtn.addEventListener('click', () => {
+            infoScreen.classList.add('hidden');
+            introScreen.classList.remove('hidden');
+            overlay.classList.remove('opacity-0'); 
+        });
+
+        document.addEventListener('DOMContentLoaded', startIntroSequence);
+
+        const audioStartHandler = () => {
+            initAudio().then(() => {
+                if (Tone.Transport.state !== 'started') {
+                    playBGM();
+                }
+            });
+        };
+
+        document.body.addEventListener('touchend', audioStartHandler, { once: true });
+        document.body.addEventListener('click', audioStartHandler, { once: true });
+    </script>
 </body>
 </html>
