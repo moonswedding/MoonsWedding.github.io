@@ -8,23 +8,41 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Configure Tailwind for Inter and Great Vibes fonts -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Great+Vibes&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #000000; 
-        }
-        
-        /* Custom class for the beautiful script font */
-        .font-script {
-            font-family: 'Great Vibes', cursive;
-        }
+				/* Keep your Google Fonts */
+		@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Rouge+Script&display=swap');
 
-        /* Custom class for the glass effect overlay */
-        .glass-overlay {
-            backdrop-filter: blur(5px);
-            background-color: rgba(0, 0, 0, 0.65);
-        }
+		/* Load your local Persian font */
+		@font-face {
+			font-family: 'IranNastaliq';
+			src: url('./assets/fonts/IranNastaliq.ttf') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		/* Global font for body → stays the same */
+		body {
+			font-family: 'Inter', sans-serif;
+			background-color: #000000;
+		}
+
+		/* Use LOCAL Persian font only for this class */
+		.font-script {
+			font-family: 'IranNastaliq', serif;
+		}
+
+		/* Keep your existing Great Vibes font */
+		.rouge-script-regular {
+  font-family: "Rouge Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+		/* Glass effect */
+		.glass-overlay {
+			backdrop-filter: blur(5px);
+			background-color: rgba(0, 0, 0, 0.65);
+		}
+
     </style>
 </head>
 <body>
@@ -38,15 +56,15 @@
             <!-- Name Animation Layer -->
             <div id="nameLayer" class="absolute inset-0 flex flex-col justify-center items-center z-10 bg-black text-white transition-opacity duration-1000 opacity-0">
                 <!-- Name 1: Mahtab (Slides in from Left) -->
-                <h1 id="name1" class="font-script text-7xl sm:text-8xl tracking-wide mb-4 opacity-0 transform -translate-x-full transition-all duration-1000 ease-out text-white">
+                <h1 id="name1" class="rouge-script-regular text-7xl sm:text-8xl tracking-wide mb-4 opacity-0 transform -translate-x-full transition-all duration-1000 ease-out text-white">
                     Mahtab
                 </h1>
                 
                 <!-- Ampersand -->
-                <p id="ampersand" class="text-4xl font-light mb-4 opacity-0 transition-opacity duration-1000 delay-500 text-white">&</p>
+                <p id="ampersand" class="text-4xl rouge-script-regular mb-4 opacity-0 transition-opacity duration-1000 delay-500 text-white">&</p>
                 
                 <!-- Name 2: Mahyar (Slides in from Right) -->
-                <h1 id="name2" class="font-script text-7xl sm:text-8xl tracking-wide opacity-0 transform translate-x-full transition-all duration-1000 ease-out delay-300 text-white">
+                <h1 id="name2" class="rouge-script-regular text-7xl sm:text-8xl tracking-wide opacity-0 transform translate-x-full transition-all duration-1000 ease-out delay-300 text-white">
                     Mahyar
                 </h1>
             </div>
@@ -59,13 +77,21 @@
 
             <!-- Black Glass Overlay -->
             <div id="overlay" class="glass-overlay absolute inset-0 flex flex-col justify-center items-center opacity-0 transition-opacity duration-1000 z-20">
-                <p class="text-gray-300 text-lg mb-2 font-light tracking-widest uppercase">The Beginning</p>
-                <h2 class="text-5xl sm:text-6xl font-script text-white text-center tracking-wide mb-8">
-                    You Are Cordially Invited
-                </h2>
-                <button id="moreBtn" class="px-8 py-3 bg-pink-500 text-white font-semibold text-lg rounded-full shadow-lg hover:bg-pink-600 transition duration-300 transform hover:scale-105">
-                    More Details & RSVP
-                </button>
+                <p class="text-5xl sm:text-6xl font-script text-white text-center mb-8"
+					dir="rtl"
+					style="direction: rtl; unicode-bidi: isolate;">
+				با حضور خود شادی ما را کامل کنید
+				</p>
+				
+<button id="moreBtn" class="px-6 py-3 text-white font-semibold rounded-full hover:transition transform hover:scale-110 flex items-center justify-center">
+
+<!-- button id="moreBtn" class="p-2 rounded-full hover:scale-110 transition transform flex items-center justify-center" -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M2 6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" />
+        <path d="M12 11.5l-1.45-1.32a2 2 0 00-2.7 0 2.1 2.1 0 000 3l4.15 3.78 4.15-3.78a2.1 2.1 0 000-3 2 2 0 00-2.7 0L12 11.5z" fill="red"/>
+    </svg>
+</button>
+
             </div>
         </section>
 
