@@ -4,148 +4,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>You're Invited | Wedding of Mahtab & Mahyar</title>
-    <!-- Load Tailwind CSS -->
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configure Tailwind for Inter and Great Vibes fonts -->
+
     <style>
-				/* Keep your Google Fonts */
-		@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Rouge+Script&display=swap');
+        /* Keep your Google Fonts and import the Inter font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Pinyon+Script&family=Rouge+Script&display=swap');
 
-		/* Load your local Persian font */
-		@font-face {
-			font-family: 'IranNastaliq';
-			src: url('./assets/fonts/IranNastaliq.ttf') format('truetype');
-			font-weight: normal;
-			font-style: normal;
-		}
+        /* Load your local Persian font (Assumes 'assets/fonts/IranNastaliq.ttf' exists) */
+        @font-face {
+            font-family: 'IranNastaliq';
+            src: url('./assets/fonts/IranNastaliq.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-		/* Global font for body → stays the same */
-		body {
-			font-family: 'Inter', sans-serif;
-			background-color: #000000;
-		}
+        /* --- Custom Utility Classes & Scrollbar Hiding --- */
 
-		/* Use LOCAL Persian font only for this class */
-		.font-script {
-			font-family: 'IranNastaliq', serif;
-		}
+        /* Global font for body */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+        }
 
-		/* Keep your existing Great Vibes font */
-		.rouge-script-regular {
-  font-family: "Rouge Script", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
+        /* Use LOCAL Persian font for the script class */
+        .font-script {
+            font-family: 'IranNastaliq', serif;
+        }
 
-		/* Glass effect */
-		.glass-overlay {
-			backdrop-filter: blur(5px);
-			background-color: rgba(0, 0, 0, 0.65);
-		}
+        /* Keep your existing Great Vibes font (Rouge Script) */
+        .rouge-script-regular {
+            font-family: "Rouge Script", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
 
+        /* Glass effect overlay */
+        .glass-overlay {
+            backdrop-filter: blur(5px);
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+
+        /* 🚀 SCROLLBAR HIDING: Targets the entire body and the specific scrollable element */
+        .hide-scrollbar {
+            /* For Firefox */
+            scrollbar-width: none;
+            /* For IE and Edge */
+            -ms-overflow-style: none; 
+        }
+
+        /* For Chrome, Safari, and Opera */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
     </style>
 </head>
-<body>
 
-    <!-- Main Container -->
-    <div id="app" class="relative min-h-screen max-w-screen-md mx-auto overflow-hidden shadow-2xl">
+<body class="hide-scrollbar"> <div id="app" class="relative min-h-screen max-w-screen-md mx-auto overflow-hidden shadow-2xl">
 
-        <!-- 1. INTRO SCREEN: Animated Names, Video, and CTA -->
         <section id="introScreen" class="h-screen w-full relative flex flex-col justify-center items-center bg-black transition-opacity duration-1000">
 
-            <!-- Name Animation Layer -->
             <div id="nameLayer" class="absolute inset-0 flex flex-col justify-center items-center z-10 bg-black text-white transition-opacity duration-1000 opacity-0">
-                <!-- Name 1: Mahtab (Slides in from Left) -->
                 <h1 id="name1" class="rouge-script-regular text-7xl sm:text-8xl tracking-wide mb-4 opacity-0 transform -translate-x-full transition-all duration-1000 ease-out text-white">
                     Mahtab
                 </h1>
-                
-                <!-- Ampersand -->
+
                 <p id="ampersand" class="text-4xl rouge-script-regular mb-4 opacity-0 transition-opacity duration-1000 delay-500 text-white">&</p>
-                
-                <!-- Name 2: Mahyar (Slides in from Right) -->
+
                 <h1 id="name2" class="rouge-script-regular text-7xl sm:text-8xl tracking-wide opacity-0 transform translate-x-full transition-all duration-1000 ease-out delay-300 text-white">
                     Mahyar
                 </h1>
             </div>
 
-            <!-- Video Background -->
             <video id="weddingVideo" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-1000" autoplay muted playsinline>
                 <source src="video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
 
-            <!-- Black Glass Overlay -->
             <div id="overlay" class="glass-overlay absolute inset-0 flex flex-col justify-center items-center opacity-0 transition-opacity duration-1000 z-20">
                 <p class="text-5xl sm:text-6xl font-script text-white text-center mb-8"
-					dir="rtl"
-					style="direction: rtl; unicode-bidi: isolate;">
-				با حضور خود شادی ما را کامل کنید
-				</p>
-				
-<button id="moreBtn" class="px-6 py-3 text-white font-semibold rounded-full hover:transition transform hover:scale-110 flex items-center justify-center">
+                    dir="rtl"
+                    style="direction: rtl; unicode-bidi: isolate;">
+                    با حضور خود شادی ما را کامل کنید
+                </p>
 
-<!-- button id="moreBtn" class="p-2 rounded-full hover:scale-110 transition transform flex items-center justify-center" -->
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M2 6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" />
-        <path d="M12 11.5l-1.45-1.32a2 2 0 00-2.7 0 2.1 2.1 0 000 3l4.15 3.78 4.15-3.78a2.1 2.1 0 000-3 2 2 0 00-2.7 0L12 11.5z" fill="red"/>
-    </svg>
-</button>
-
+                <button id="moreBtn" class="px-6 py-3 text-white font-semibold rounded-full hover:transition transform hover:scale-110 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M2 6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" />
+                        <path d="M12 11.5l-1.45-1.32a2 2 0 00-2.7 0 2.1 2.1 0 000 3l4.15 3.78 4.15-3.78a2.1 2.1 0 000-3 2 2 0 00-2.7 0L12 11.5z" fill="red"/>
+                    </svg>
+                </button>
             </div>
         </section>
 
-        <!-- 2. INFORMATION SCREEN -->
-        <section id="infoScreen" class="absolute inset-0 h-screen w-full bg-white/95 hidden overflow-y-auto pb-20 p-6 sm:p-8">
+        <section id="detailsScreen" class="absolute inset-0 h-screen w-full transition-transform duration-700 ease-out transform translate-y-full z-30">
+            
+            <div class="glass-overlay w-full h-full overflow-y-auto pb-10 p-6 sm:p-8 hide-scrollbar"> <div class="max-w-md mx-auto">
+                    <button id="backBtn" class="mt-4 mb-8 text-gray-100 hover:text-pink-400 flex items-center transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                        </svg>
+                        Back to Cover
+                    </button>
 
-            <div class="max-w-md mx-auto">
-                <button id="backBtn" class="mt-4 mb-8 text-gray-600 hover:text-pink-600 flex items-center transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" />
-                    </svg>
-                    Back to Cover
-                </button>
+                    <h1 class="font-script text-6xl text-pink-400 mb-2">Mahyar & Mahtab</h1>
+                    <h2 class="text-2xl font-light text-gray-300 mb-10">Wedding Day Details</h2>
 
-                <h1 class="font-script text-6xl text-pink-600 mb-2">Mahyar & Mahtab</h1>
-                <h2 class="text-2xl font-light text-gray-700 mb-10">Wedding Day Details</h2>
+                    <div class="bg-gray-900/50 p-6 rounded-xl shadow-2xl mb-6 border-t-4 border-pink-400 backdrop-blur-sm">
+                        <p class="text-sm font-semibold text-gray-400 uppercase tracking-wider">The Date</p>
+                        <p class="text-3xl font-bold text-white mt-1">Saturday, May 17, 2026</p>
+                        <p class="text-xl text-gray-300">Ceremony at 4:00 PM</p>
+                    </div>
 
-                <!-- Details Sections... -->
-                <div class="bg-white p-6 rounded-xl shadow-md mb-6 border-t-4 border-pink-400">
-                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">The Date</p>
-                    <p class="text-3xl font-bold text-gray-900 mt-1">Saturday, May 17, 2026</p>
-                    <p class="text-xl text-gray-600">Ceremony at 4:00 PM</p>
-                </div>
+                    <div class="bg-gray-900/50 p-6 rounded-xl shadow-2xl mb-6 border-t-4 border-purple-400 backdrop-blur-sm">
+                        <p class="text-sm font-semibold text-gray-400 uppercase tracking-wider">The Venue</p>
+                        <p class="text-xl font-semibold text-white mt-1">The Grand Oak Estate</p>
+                        <p class="text-gray-300">123 Sunset Blvd, City Name, State 12345</p>
+                        <a href="#" class="mt-3 inline-flex items-center text-blue-300 hover:text-blue-500 transition-colors">
+                            View on Map
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                        </a>
+                    </div>
 
-                <div class="bg-white p-6 rounded-xl shadow-md mb-6 border-t-4 border-purple-400">
-                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">The Venue</p>
-                    <p class="text-xl font-semibold text-gray-900 mt-1">The Grand Oak Estate</p>
-                    <p class="text-gray-600">123 Sunset Blvd, City Name, State 12345</p>
-                    <a href="#" class="mt-3 inline-flex items-center text-blue-500 hover:text-blue-700 transition-colors">
-                        View on Map
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                    </a>
-                </div>
-
-                <div class="bg-white p-6 rounded-xl shadow-md mb-6 border-t-4 border-teal-400">
-                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">RSVP</p>
-                    <p class="text-xl font-semibold text-gray-900 mt-1">Please confirm by April 1, 2026</p>
-                    <p class="text-gray-600 mb-4">Click the link below to let us know if you can make it!</p>
-                    <a href="#" class="px-6 py-2 bg-teal-500 text-white font-semibold rounded-lg shadow-md hover:bg-teal-600 transition duration-300">
-                        Submit RSVP
-                    </a>
+                    <div class="bg-gray-900/50 p-6 rounded-xl shadow-2xl mb-6 border-t-4 border-teal-400 backdrop-blur-sm">
+                        <p class="text-sm font-semibold text-gray-400 uppercase tracking-wider">RSVP</p>
+                        <p class="text-xl font-semibold text-white mt-1">Please confirm by April 1, 2026</p>
+                        <p class="text-gray-300 mb-4">Click the link below to let us know if you can make it!</p>
+                        <a href="#" class="px-6 py-2 bg-teal-500 text-white font-semibold rounded-lg shadow-md hover:bg-teal-600 transition duration-300">
+                            Submit RSVP
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- Firebase and Tone.js Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/tone@14.8.49/build/Tone.min.js"></script>
+
     <script type="module">
-        // --- MANDATORY FIREBASE SETUP ---
+        // --- 3.1. FIREBASE SETUP (Mandatory Boilerplate) ---
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-        import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getFirestore, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        
         setLogLevel('Debug');
 
         const _appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
@@ -173,10 +174,13 @@
             });
         }
 
-        // --- CORE APPLICATION LOGIC ---
+        // --- 3.2. DOM Elements ---
         const introScreen = document.getElementById('introScreen');
-        const infoScreen = document.getElementById('infoScreen');
+        const detailsScreen = document.getElementById('detailsScreen');
         const nameLayer = document.getElementById('nameLayer');
+        const name1 = document.getElementById('name1');
+        const ampersand = document.getElementById('ampersand');
+        const name2 = document.getElementById('name2');
         const weddingVideo = document.getElementById('weddingVideo');
         const overlay = document.getElementById('overlay');
         const moreBtn = document.getElementById('moreBtn');
@@ -185,11 +189,11 @@
         let isVideoPlaying = false;
         let synth;
 
-        // Audio Setup
+        // --- 3.3. Audio Functions (Tone.js) ---
         const initAudio = async () => {
             if (!synth) {
                 await Tone.start();
-                weddingVideo.muted = false;
+                weddingVideo.muted = false; // Unmute the video after user interaction
                 synth = new Tone.PolySynth(Tone.DuoSynth, {
                     oscillator: { type: "sawtooth" },
                     envelope: { attack: 0.1, decay: 0.5, sustain: 0.3, release: 0.5 }
@@ -217,65 +221,93 @@
             }
         };
 
+        // --- 3.4. Application Logic ---
+
+        /**
+         * Pauses the video, stops BGM, and shows the main call-to-action overlay.
+         */
         const showOverlay = () => {
             if (isVideoPlaying) {
                 isVideoPlaying = false;
                 weddingVideo.pause();
-                weddingVideo.classList.add('opacity-50'); 
-                stopBGM(); 
+                stopBGM();
                 overlay.classList.remove('opacity-0');
             }
         };
 
+        /**
+         * Executes the initial name animation sequence, then plays the video/BGM.
+         */
         const startIntroSequence = () => {
-            // Animation: Remove initial specific translations
+            // Animation: Trigger Tailwind class removals on next tick (50ms)
             setTimeout(() => {
                 nameLayer.classList.remove('opacity-0');
-                
+
                 // Mahtab comes from LEFT (remove -translate-x-full)
-                document.getElementById('name1').classList.remove('opacity-0', '-translate-x-full');
-                
+                name1.classList.remove('opacity-0', '-translate-x-full');
+
                 // Ampersand
-                document.getElementById('ampersand').classList.remove('opacity-0');
-                
+                ampersand.classList.remove('opacity-0');
+
                 // Mahyar comes from RIGHT (remove translate-x-full)
-                document.getElementById('name2').classList.remove('opacity-0', 'translate-x-full');
+                name2.classList.remove('opacity-0', 'translate-x-full');
             }, 50);
 
-            // Sequence Timing
+            // Sequence Timing: After names appear, fade them out and show video
             setTimeout(async () => {
                 nameLayer.classList.add('opacity-0');
-                weddingVideo.classList.remove('opacity-0'); 
-                
+                weddingVideo.classList.remove('opacity-0');
+
                 isVideoPlaying = true;
-                
-                await initAudio(); 
-                if (Tone.Transport.state !== 'started') {
-                    playBGM();
+
+                // Attempt to initialize and play BGM (requires user interaction)
+                try {
+                    await initAudio();
+                    if (Tone.Transport.state !== 'started') {
+                        playBGM();
+                    }
+                } catch (e) {
+                    console.warn("Audio initialization/BGM failed:", e);
                 }
 
-                weddingVideo.play().catch(e => console.log("Video play failed (autostart) but will continue muted."));
-                
-            }, 2000);
+                weddingVideo.play().catch(e => console.log("Video play failed (autostart) but will continue muted until interaction."));
 
+            }, 2000); // Wait 2 seconds for name animation to complete
+
+            // When video ends, show the overlay and CTA
             weddingVideo.onended = showOverlay;
         };
 
+        // --- 3.5. Event Handlers ---
+
+        /**
+         * Handler for the CTA button: slides the details screen into view.
+         */
         moreBtn.addEventListener('click', () => {
-            introScreen.classList.add('hidden');
-            infoScreen.classList.remove('hidden');
-            weddingVideo.pause(); 
+            // Slide the details screen up by removing translate-y-full
+            detailsScreen.classList.remove('translate-y-full'); 
+            
+            // Hide the intro overlay
+            overlay.classList.add('opacity-0'); 
+            
+            weddingVideo.pause();
             stopBGM();
         });
 
+        /**
+         * Handler for the Back button: slides the details screen back down.
+         */
         backBtn.addEventListener('click', () => {
-            infoScreen.classList.add('hidden');
-            introScreen.classList.remove('hidden');
+            // Slide the details screen down
+            detailsScreen.classList.add('translate-y-full'); 
+            
+            // Re-show the intro overlay
             overlay.classList.remove('opacity-0'); 
         });
 
-        document.addEventListener('DOMContentLoaded', startIntroSequence);
-
+        /**
+         * Universal handler to start the Audio Context on first user interaction.
+         */
         const audioStartHandler = () => {
             initAudio().then(() => {
                 if (Tone.Transport.state !== 'started') {
@@ -284,6 +316,10 @@
             });
         };
 
+        // DOM Content Loaded: Start the initial visual sequence
+        document.addEventListener('DOMContentLoaded', startIntroSequence);
+
+        // Add listeners for the first user interaction to start the audio
         document.body.addEventListener('touchend', audioStartHandler, { once: true });
         document.body.addEventListener('click', audioStartHandler, { once: true });
     </script>
