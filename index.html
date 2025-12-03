@@ -31,6 +31,15 @@
         .font-script {
             font-family: 'IranNastaliq', serif;
         }
+        
+        /* Custom size for the Persian names and now the poem (Nastaliq) */
+        .font-nastaliq-lg {
+            font-family: 'IranNastaliq', serif;
+            font-size: 3.75rem; /* text-6xl equivalent */
+            line-height: 1.2;
+        }
+
+        /* REMOVED: .font-nastaliq-xl as we are reusing -lg for the poem */
 
         /* Keep your existing Great Vibes font (Rouge Script) */
         .rouge-script-regular {
@@ -43,6 +52,14 @@
         .glass-overlay {
             backdrop-filter: blur(5px);
             background-color: rgba(0, 0, 0, 0.35);
+        }
+        
+        /* Style for the icons to match the screenshot color/look */
+        .icon-row-text {
+            color: #d1d5db; /* gray-300 */
+        }
+        .icon-row-icon {
+            color: #e5e7eb; /* gray-200, slightly lighter */
         }
 
         /* 🚀 SCROLLBAR HIDING: Targets the entire body and the specific scrollable element */
@@ -99,41 +116,58 @@
 
         <section id="detailsScreen" class="absolute inset-0 h-screen w-full transition-transform duration-700 ease-out transform translate-y-full z-30">
             
-            <div class="glass-overlay w-full h-full overflow-y-auto pb-10 p-6 sm:p-8 hide-scrollbar"> <div class="max-w-md mx-auto">
-                    <button id="backBtn" class="mt-4 mb-8 text-gray-100 hover:text-pink-400 flex items-center transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" />
-                        </svg>
-                        Back to Cover
-                    </button>
+            <div class="glass-overlay w-full h-full overflow-y-auto pb-10 pt-6 p-6 sm:p-8 hide-scrollbar">
+                <div class="max-w-md mx-auto">
+                    
+                    <div class="mt-4 mb-10 text-center">
+                        <h1 class="font-nastaliq-lg text-white mb-0" dir="rtl" style="direction: rtl; unicode-bidi: isolate;">
+                            مهيار   و   مهتاب
+                        </h1>
 
-                    <h1 class="font-script text-6xl text-pink-400 mb-2">Mahyar & Mahtab</h1>
-                    <h2 class="text-2xl font-light text-gray-300 mb-10">Wedding Day Details</h2>
-
-                    <div class="bg-gray-900/50 p-6 rounded-xl shadow-2xl mb-6 border-t-4 border-pink-400 backdrop-blur-sm">
-                        <p class="text-sm font-semibold text-gray-400 uppercase tracking-wider">The Date</p>
-                        <p class="text-3xl font-bold text-white mt-1">Saturday, May 17, 2026</p>
-                        <p class="text-xl text-gray-300">Ceremony at 4:00 PM</p>
+                        <div class="flex justify-center items-center my-6">
+                            <span class="h-px w-1/4 bg-gray-600"></span>
+                            <div class="text-gray-400 mx-4">
+                                &nbsp;✦&nbsp;
+                            </div>
+                            <span class="h-px w-1/4 bg-gray-600"></span>
+                        </div>
+                        
+                        <div class="text-center text-gray-300 font-script font-nastaliq-lg" dir="rtl" style="direction: rtl; unicode-bidi: isolate;">
+                           <p class="mb-2">بار سفر بسته ایم به قصد دریای همدلی</p>
+                           <p>در پگاه آغازین این سفر همراهمان باشید</p>
+                        </div>
                     </div>
 
-                    <div class="bg-gray-900/50 p-6 rounded-xl shadow-2xl mb-6 border-t-4 border-purple-400 backdrop-blur-sm">
-                        <p class="text-sm font-semibold text-gray-400 uppercase tracking-wider">The Venue</p>
-                        <p class="text-xl font-semibold text-white mt-1">The Grand Oak Estate</p>
-                        <p class="text-gray-300">123 Sunset Blvd, City Name, State 12345</p>
-                        <a href="#" class="mt-3 inline-flex items-center text-blue-300 hover:text-blue-500 transition-colors">
-                            View on Map
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    <div class="grid grid-cols-3 gap-3 mb-10 text-center text-white" dir="rtl" style="direction: rtl; unicode-bidi: isolate;">
+                        
+                        <div class="p-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto mb-2 icon-row-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <p class="text-base icon-row-text">ساعت</p>
+                            <p class="text-2xl font-semibold">۱۹:۰۰</p>
+                        </div>
+
+                        <a href="#" target="_blank" class="p-3 block group hover:bg-white/10 transition duration-300 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto mb-2 icon-row-icon group-hover:text-pink-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <p class="text-base icon-row-text">تالار</p>
+                            <p class="text-2xl font-semibold">پارسیان</p>
                         </a>
-                    </div>
 
-                    <div class="bg-gray-900/50 p-6 rounded-xl shadow-2xl mb-6 border-t-4 border-teal-400 backdrop-blur-sm">
-                        <p class="text-sm font-semibold text-gray-400 uppercase tracking-wider">RSVP</p>
-                        <p class="text-xl font-semibold text-white mt-1">Please confirm by April 1, 2026</p>
-                        <p class="text-gray-300 mb-4">Click the link below to let us know if you can make it!</p>
-                        <a href="#" class="px-6 py-2 bg-teal-500 text-white font-semibold rounded-lg shadow-md hover:bg-teal-600 transition duration-300">
-                            Submit RSVP
-                        </a>
+                        <div class="p-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto mb-2 icon-row-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <p class="text-base icon-row-text">پنجشنبه</p>
+                            <p class="text-2xl font-semibold">۲۳ آذر</p>
+                        </div>
                     </div>
+                    
+                    <div class="h-10"></div>
+                    
                 </div>
             </div>
         </section>
@@ -184,8 +218,7 @@
         const weddingVideo = document.getElementById('weddingVideo');
         const overlay = document.getElementById('overlay');
         const moreBtn = document.getElementById('moreBtn');
-        const backBtn = document.getElementById('backBtn');
-
+        
         let isVideoPlaying = false;
         let synth;
 
@@ -292,17 +325,6 @@
             
             weddingVideo.pause();
             stopBGM();
-        });
-
-        /**
-         * Handler for the Back button: slides the details screen back down.
-         */
-        backBtn.addEventListener('click', () => {
-            // Slide the details screen down
-            detailsScreen.classList.add('translate-y-full'); 
-            
-            // Re-show the intro overlay
-            overlay.classList.remove('opacity-0'); 
         });
 
         /**
