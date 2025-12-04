@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You're Invited to Moons Wedding</title>
+    <title>You're Invited | Wedding of Mahtab & Mahyar</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -88,7 +88,12 @@
 
             <div id="nameLayer" class="absolute inset-0 flex flex-col justify-center items-center z-10 bg-black text-white opacity-0 transition-opacity duration-1000">
 
-                <h1 id="name1" class="rouge-script-regular text-7xl sm:text-8xl mb-4 opacity-0 transform -translate-x-full transition-all duration-1000 ease-out">
+<p id="invitationText1"
+   class="text-4xl sm:text-5xl font-script text-white text-center opacity-0 transform translate-y-4 transition-all duration-1000 ease-out"
+   dir="rtl">
+   آغاز فصلی نو ...
+</p>
+                <h1 id="name1" class="rouge-script-regular text-7xl sm:text-8xl mb-4 mt-20 opacity-0 transform -translate-x-full transition-all duration-1000 ease-out">
                     Mahtab
                 </h1>
 
@@ -101,14 +106,17 @@
                 </h1>
 
                 <!-- NEW: Invitation text under names -->
-                <p id="invitationText"
-                   class="text-3xl sm:text-4xl font-script text-white text-center mt-10 opacity-0 transition-opacity duration-700"
-                   dir="rtl">
-                   با حضور خود شادی ما را کامل کنید
-                </p>
+                
+
+<p id="invitationText2"
+   class="text-5xl sm:text-5xl font-script text-white text-center mt-20 opacity-0 transform translate-y-4 transition-all duration-1000 ease-out"
+   dir="rtl">
+   با حضور خود شادی ما را کامل کنید
+</p>
+
 
                 <!-- NEW: Envelope button -->
-                <button id="startBtn" class="mt-6 opacity-0 transition-opacity duration-700 hover:scale-110 transform">
+                <button id="startBtn" class="mt-2 opacity-0 hover:scale-110  transform translate-y-4 transition-all duration-1000 ease-out">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M2 6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" />
                         <path d="M12 11.5l-1.45-1.32a2 2 0 00-2.7 0 2.1 2.1 0 000 3l4.15 3.78 4.15-3.78a2.1 2.1 0 000-3 2 2 0 00-2.7 0L12 11.5z" fill="red"/>
@@ -197,6 +205,13 @@
                 ampersand.classList.remove('opacity-0');
                 name2.classList.remove('opacity-0', 'translate-x-full');
             }, 50);
+			
+			setTimeout(() => {
+                // MODIFIED: Remove both opacity and translate classes
+                invitationText1.classList.remove("opacity-0", "translate-y-4");
+                invitationText2.classList.remove("opacity-0", "translate-y-4");
+                startBtn.classList.remove("opacity-0", "translate-y-4");
+            }, 1800);
 
             setTimeout(() => {
                 invitationText.classList.remove("opacity-0");
