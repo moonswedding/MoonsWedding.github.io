@@ -8,10 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        /* Keep your Google Fonts and import the Inter font */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Pinyon+Script&family=Rouge+Script&display=swap');
 
-        /* Load your local Persian font (Assumes 'assets/fonts/IranNastaliq.ttf' exists) */
         @font-face {
             font-family: 'IranNastaliq';
             src: url('./assets/fonts/IranNastaliq.ttf') format('truetype');
@@ -19,331 +17,185 @@
             font-style: normal;
         }
 
-        /* --- Custom Utility Classes & Scrollbar Hiding --- */
-
-        /* Global font for body */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #000000;
         }
 
-        /* Use LOCAL Persian font for the script class */
         .font-script {
             font-family: 'IranNastaliq', serif;
         }
-        
-        /* Custom size for the Persian names and now the poem (Nastaliq) */
+
         .font-nastaliq-lg {
             font-family: 'IranNastaliq', serif;
-            font-size: 3.75rem; /* text-6xl equivalent */
+            font-size: 3.75rem;
             line-height: 1.2;
         }
 
-        /* REMOVED: .font-nastaliq-xl as we are reusing -lg for the poem */
-
-        /* Keep your existing Great Vibes font (Rouge Script) */
         .rouge-script-regular {
             font-family: "Rouge Script", cursive;
             font-weight: 400;
             font-style: normal;
         }
 
-        /* Glass effect overlay */
         .glass-overlay {
             backdrop-filter: blur(5px);
             background-color: rgba(0, 0, 0, 0.35);
         }
-        
-        /* Style for the icons to match the screenshot color/look */
-        .icon-row-text {
-            color: #d1d5db; /* gray-300 */
-        }
-        .icon-row-icon {
-            color: #e5e7eb; /* gray-200, slightly lighter */
-        }
 
-        /* 🚀 SCROLLBAR HIDING: Targets the entire body and the specific scrollable element */
-        .hide-scrollbar {
-            /* For Firefox */
-            scrollbar-width: none;
-            /* For IE and Edge */
-            -ms-overflow-style: none; 
-        }
-
-        /* For Chrome, Safari, and Opera */
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
+        .hide-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
 
-<body class="hide-scrollbar"> <div id="app" class="relative min-h-screen max-w-screen-md mx-auto overflow-hidden shadow-2xl">
+<body class="hide-scrollbar">
 
+    <!-- 🎵 MUSIC -->
+    <audio id="bgMusic" src="music.mp3" loop></audio>
+
+    <div id="app" class="relative min-h-screen max-w-screen-md mx-auto overflow-hidden shadow-2xl">
+
+        <!-- INTRO SCREEN -->
         <section id="introScreen" class="h-screen w-full relative flex flex-col justify-center items-center bg-black transition-opacity duration-1000">
 
-            <div id="nameLayer" class="absolute inset-0 flex flex-col justify-center items-center z-10 bg-black text-white transition-opacity duration-1000 opacity-0">
-                <h1 id="name1" class="rouge-script-regular text-7xl sm:text-8xl tracking-wide mb-4 opacity-0 transform -translate-x-full transition-all duration-1000 ease-out text-white">
+            <div id="nameLayer" class="absolute inset-0 flex flex-col justify-center items-center z-10 bg-black text-white opacity-0 transition-opacity duration-1000">
+
+                <h1 id="name1" class="rouge-script-regular text-7xl sm:text-8xl mb-4 opacity-0 transform -translate-x-full transition-all duration-1000 ease-out">
                     Mahtab
                 </h1>
 
-                <p id="ampersand" class="text-4xl rouge-script-regular mb-4 opacity-0 transition-opacity duration-1000 delay-500 text-white">&</p>
-
-                <h1 id="name2" class="rouge-script-regular text-7xl sm:text-8xl tracking-wide opacity-0 transform translate-x-full transition-all duration-1000 ease-out delay-300 text-white">
-                    Mahyar
-                </h1>
-            </div>
-
-            <video id="weddingVideo" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-1000" autoplay muted playsinline>
-                <source src="video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-
-            <div id="overlay" class="glass-overlay absolute inset-0 flex flex-col justify-center items-center opacity-0 transition-opacity duration-1000 z-20">
-                <p class="text-5xl sm:text-6xl font-script text-white text-center mb-8"
-                    dir="rtl"
-                    style="direction: rtl; unicode-bidi: isolate;">
-                    با حضور خود شادی ما را کامل کنید
+                <p id="ampersand" class="text-4xl rouge-script-regular mb-4 opacity-0 transition-opacity duration-1000 delay-500">
+                    &
                 </p>
 
-                <button id="moreBtn" class="px-6 py-3 text-white font-semibold rounded-full hover:transition transform hover:scale-110 flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" viewBox="0 0 24 24" fill="currentColor">
+                <h1 id="name2" class="rouge-script-regular text-7xl sm:text-8xl opacity-0 transform translate-x-full transition-all duration-1000 ease-out delay-300">
+                    Mahyar
+                </h1>
+
+                <!-- NEW: Invitation text under names -->
+                <p id="invitationText"
+                   class="text-3xl sm:text-4xl font-script text-white text-center mt-10 opacity-0 transition-opacity duration-700"
+                   dir="rtl">
+                   با حضور خود شادی ما را کامل کنید
+                </p>
+
+                <!-- NEW: Envelope button -->
+                <button id="startBtn" class="mt-6 opacity-0 transition-opacity duration-700 hover:scale-110 transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M2 6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" />
                         <path d="M12 11.5l-1.45-1.32a2 2 0 00-2.7 0 2.1 2.1 0 000 3l4.15 3.78 4.15-3.78a2.1 2.1 0 000-3 2 2 0 00-2.7 0L12 11.5z" fill="red"/>
                     </svg>
                 </button>
+
             </div>
+
+            <video id="weddingVideo" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-1000" muted playsinline>
+                <source src="video.mp4" type="video/mp4">
+            </video>
+
         </section>
 
-        <section id="detailsScreen" class="absolute inset-0 h-screen w-full transition-transform duration-700 ease-out transform translate-y-full z-30">
-            
+        <!-- DETAILS SCREEN -->
+        <section id="detailsScreen" class="absolute inset-0 h-screen w-full transform translate-y-full transition-transform duration-700 ease-out z-30">
             <div class="glass-overlay w-full h-full overflow-y-auto pb-10 pt-6 p-6 sm:p-8 hide-scrollbar">
                 <div class="max-w-md mx-auto">
-                    
+
                     <div class="mt-4 mb-10 text-center">
-                        <h1 class="font-nastaliq-lg text-white mb-0" dir="rtl" style="direction: rtl; unicode-bidi: isolate;">
-                            مهيار   و   مهتاب
-                        </h1>
+                        <h1 class="font-nastaliq-lg text-white" dir="rtl">مهيار و مهتاب</h1>
 
                         <div class="flex justify-center items-center my-6">
                             <span class="h-px w-1/4 bg-gray-600"></span>
-                            <div class="text-gray-400 mx-4">
-                                &nbsp;✦&nbsp;
-                            </div>
+                            <div class="text-gray-400 mx-4">&nbsp;✦&nbsp;</div>
                             <span class="h-px w-1/4 bg-gray-600"></span>
                         </div>
-                        
-                        <div class="text-center text-gray-300 font-script font-nastaliq-lg" dir="rtl" style="direction: rtl; unicode-bidi: isolate;">
-                           <p class="mb-2">بار سفر بسته ایم به قصد دریای همدلی</p>
-                           <p>در پگاه آغازین این سفر همراهمان باشید</p>
+
+                        <div class="text-center text-gray-300 font-script font-nastaliq-lg" dir="rtl">
+                            <p class="mb-2">بار سفر بسته ایم به قصد دریای همدلی</p>
+                            <p>در پگاه آغازین این سفر همراهمان باشید</p>
+                        </div>
+
+                        <div class="flex justify-center items-center my-6">
+                            <span class="h-px w-1/4 bg-gray-600"></span>
+                            <div class="text-gray-400 mx-4">&nbsp;✦&nbsp;</div>
+                            <span class="h-px w-1/4 bg-gray-600"></span>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-3 gap-3 mb-10 text-center text-white" dir="rtl" style="direction: rtl; unicode-bidi: isolate;">
-                        
+                    <div class="grid grid-cols-3 gap-3 mb-10 text-center text-white" dir="rtl">
+
                         <div class="p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto mb-2 icon-row-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
-                            <p class="text-base icon-row-text">ساعت</p>
+                            <p class="text-base">ساعت</p>
                             <p class="text-2xl font-semibold">۱۹:۰۰</p>
                         </div>
 
-                        <a href="#" target="_blank" class="p-3 block group hover:bg-white/10 transition duration-300 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto mb-2 icon-row-icon group-hover:text-pink-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <div class="p-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
-                            <p class="text-base icon-row-text">تالار</p>
+                            <p class="text-base">تالار</p>
                             <p class="text-2xl font-semibold">پارسیان</p>
-                        </a>
+                        </div>
 
                         <div class="p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto mb-2 icon-row-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
-                            <p class="text-base icon-row-text">پنجشنبه</p>
+                            <p class="text-base">پنجشنبه</p>
                             <p class="text-2xl font-semibold">۲۳ آذر</p>
                         </div>
+
                     </div>
-                    
-                    <div class="h-10"></div>
-                    
+
                 </div>
             </div>
         </section>
+
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/tone@14.8.49/build/Tone.min.js"></script>
-
-    <script type="module">
-        // --- 3.1. FIREBASE SETUP (Mandatory Boilerplate) ---
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-        
-        setLogLevel('Debug');
-
-        const _appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const _firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
-        const _initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : undefined;
-
-        let db, auth;
-
-        if (Object.keys(_firebaseConfig).length > 0) {
-            const app = initializeApp(_firebaseConfig);
-            auth = getAuth(app);
-            db = getFirestore(app);
-
-            onAuthStateChanged(auth, (user) => {
-                if (!user) {
-                    if (_initialAuthToken) {
-                        signInWithCustomToken(auth, _initialAuthToken).catch(e => {
-                            console.error("Custom token sign-in failed:", e);
-                            signInAnonymously(auth).catch(err => console.error("Anonymous sign-in failed:", err));
-                        });
-                    } else {
-                        signInAnonymously(auth).catch(err => console.error("Anonymous sign-in failed:", err));
-                    }
-                }
-            });
-        }
-
-        // --- 3.2. DOM Elements ---
-        const introScreen = document.getElementById('introScreen');
-        const detailsScreen = document.getElementById('detailsScreen');
+    <!-- SCRIPT -->
+    <script>
         const nameLayer = document.getElementById('nameLayer');
         const name1 = document.getElementById('name1');
         const ampersand = document.getElementById('ampersand');
         const name2 = document.getElementById('name2');
+        const invitationText = document.getElementById('invitationText');
+        const startBtn = document.getElementById('startBtn');
         const weddingVideo = document.getElementById('weddingVideo');
-        const overlay = document.getElementById('overlay');
-        const moreBtn = document.getElementById('moreBtn');
-        
-        let isVideoPlaying = false;
-        let synth;
+        const detailsScreen = document.getElementById('detailsScreen');
+        const bgMusic = document.getElementById("bgMusic");
 
-        // --- 3.3. Audio Functions (Tone.js) ---
-        const initAudio = async () => {
-            if (!synth) {
-                await Tone.start();
-                weddingVideo.muted = false; // Unmute the video after user interaction
-                synth = new Tone.PolySynth(Tone.DuoSynth, {
-                    oscillator: { type: "sawtooth" },
-                    envelope: { attack: 0.1, decay: 0.5, sustain: 0.3, release: 0.5 }
-                }).toDestination();
-                console.log("Audio Context started.");
-            }
-        };
-
-        const playBGM = () => {
-            const notes = ["C4", "G3", "A3", "F3"];
-            let noteIndex = 0;
-            Tone.Transport.scheduleRepeat(time => {
-                const note = notes[noteIndex % notes.length];
-                synth.triggerAttackRelease(note, "2m", time, 0.4);
-                noteIndex++;
-            }, "2m");
-            Tone.Transport.bpm.value = 40;
-            Tone.Transport.start();
-        };
-
-        const stopBGM = () => {
-            if (synth) {
-                Tone.Transport.stop();
-                synth.releaseAll();
-            }
-        };
-
-        // --- 3.4. Application Logic ---
-
-        /**
-         * Pauses the video, stops BGM, and shows the main call-to-action overlay.
-         */
-        const showOverlay = () => {
-            if (isVideoPlaying) {
-                isVideoPlaying = false;
-                weddingVideo.pause();
-                stopBGM();
-                overlay.classList.remove('opacity-0');
-            }
-        };
-
-        /**
-         * Executes the initial name animation sequence, then plays the video/BGM.
-         */
-        const startIntroSequence = () => {
-            // Animation: Trigger Tailwind class removals on next tick (50ms)
+        // Animate names when page loads
+        document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 nameLayer.classList.remove('opacity-0');
-
-                // Mahtab comes from LEFT (remove -translate-x-full)
                 name1.classList.remove('opacity-0', '-translate-x-full');
-
-                // Ampersand
                 ampersand.classList.remove('opacity-0');
-
-                // Mahyar comes from RIGHT (remove translate-x-full)
                 name2.classList.remove('opacity-0', 'translate-x-full');
             }, 50);
 
-            // Sequence Timing: After names appear, fade them out and show video
-            setTimeout(async () => {
-                nameLayer.classList.add('opacity-0');
-                weddingVideo.classList.remove('opacity-0');
-
-                isVideoPlaying = true;
-
-                // Attempt to initialize and play BGM (requires user interaction)
-                try {
-                    await initAudio();
-                    if (Tone.Transport.state !== 'started') {
-                        playBGM();
-                    }
-                } catch (e) {
-                    console.warn("Audio initialization/BGM failed:", e);
-                }
-
-                weddingVideo.play().catch(e => console.log("Video play failed (autostart) but will continue muted until interaction."));
-
-            }, 2000); // Wait 2 seconds for name animation to complete
-
-            // When video ends, show the overlay and CTA
-            weddingVideo.onended = showOverlay;
-        };
-
-        // --- 3.5. Event Handlers ---
-
-        /**
-         * Handler for the CTA button: slides the details screen into view.
-         */
-        moreBtn.addEventListener('click', () => {
-            // Slide the details screen up by removing translate-y-full
-            detailsScreen.classList.remove('translate-y-full'); 
-            
-            // Hide the intro overlay
-            overlay.classList.add('opacity-0'); 
-            
-            weddingVideo.pause();
-            stopBGM();
+            setTimeout(() => {
+                invitationText.classList.remove("opacity-0");
+                startBtn.classList.remove("opacity-0");
+            }, 1800);
         });
 
-        /**
-         * Universal handler to start the Audio Context on first user interaction.
-         */
-        const audioStartHandler = () => {
-            initAudio().then(() => {
-                if (Tone.Transport.state !== 'started') {
-                    playBGM();
-                }
-            });
+        // Clicking envelope starts video + music
+        startBtn.addEventListener("click", () => {
+            bgMusic.play().catch(()=>{});
+            weddingVideo.classList.remove('opacity-0');
+            nameLayer.classList.add('opacity-0');
+            weddingVideo.play().catch(()=>{});
+        });
+
+        // After video ends → slide up details page
+        weddingVideo.onended = () => {
+            detailsScreen.classList.remove('translate-y-full');
         };
-
-        // DOM Content Loaded: Start the initial visual sequence
-        document.addEventListener('DOMContentLoaded', startIntroSequence);
-
-        // Add listeners for the first user interaction to start the audio
-        document.body.addEventListener('touchend', audioStartHandler, { once: true });
-        document.body.addEventListener('click', audioStartHandler, { once: true });
     </script>
+
 </body>
 </html>
