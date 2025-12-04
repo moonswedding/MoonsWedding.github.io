@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You're Invited | Wedding of Mahtab & Mahyar</title>
+    <title>You're Invited to Moons Wedding</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Pinyon+Script&family=Rouge+Script&display=swap');
+        /* 🎨 IMPORTING ALL REQUIRED FONTS (Inter, Pinyon, Rouge, Beiruti) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Pinyon+Script&family=Rouge+Script&family=Beiruti:wght@200..900&display=swap');
 
+        /* ------------------------------------- */
+        /* ORIGINAL FONT DEFINITIONS PRESERVED */
+        /* ------------------------------------- */
         @font-face {
             font-family: 'IranNastaliq';
             src: url('./assets/fonts/IranNastaliq.ttf') format('truetype');
@@ -31,6 +35,13 @@
             font-size: 3.75rem;
             line-height: 1.2;
         }
+        
+        /* ------------------------------------- */
+        /* NEW FONT FOR THE DATE BLOCK */
+        /* ------------------------------------- */
+        .font-beiruti {
+            font-family: 'Beiruti', sans-serif;
+        }
 
         .rouge-script-regular {
             font-family: "Rouge Script", cursive;
@@ -43,8 +54,25 @@
             background-color: rgba(0, 0, 0, 0.35);
         }
 
+        .icon-row-text { color: #d1d5db; }
+        .icon-row-icon { color: #e5e7eb; }
+
         .hide-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
+
+        /* Specific styles for the new vertical date/info block */
+        .date-block-info {
+            border-right: 1px solid rgba(255, 255, 255, 0.4); /* Subtle white vertical line */
+            padding-right: 1rem;
+        }
+		
+		/* ------------------------------------- */
+        /* CSS FILTER FOR THE POEM IMAGE */
+        /* This inverts and brightens the image to make dark text appear white/light gray on the dark background. */
+        .filter-to-white {
+            filter: invert(1) grayscale(100%) brightness(1.7); 
+        }
+        /* ------------------------------------- */
     </style>
 </head>
 
@@ -101,7 +129,7 @@
                 <div class="max-w-md mx-auto">
 
                     <div class="mt-4 mb-10 text-center">
-                        <h1 class="font-nastaliq-lg text-white" dir="rtl">مهيار و مهتاب</h1>
+                        <h1 class="font-nastaliq-lg text-white text-8xl" dir="rtl">مهتاب و مهیار</h1>
 
                         <div class="flex justify-center items-center my-6">
                             <span class="h-px w-1/4 bg-gray-600"></span>
@@ -109,10 +137,10 @@
                             <span class="h-px w-1/4 bg-gray-600"></span>
                         </div>
 
-                        <div class="text-center text-gray-300 font-script font-nastaliq-lg" dir="rtl">
-                            <p class="mb-2">بار سفر بسته ایم به قصد دریای همدلی</p>
-                            <p>در پگاه آغازین این سفر همراهمان باشید</p>
-                        </div>
+                        <div class="text-center mb-8 flex justify-center" dir="rtl">
+    <img src="poem.png" alt="تو چنان در دل من رفته که جان در بدنی" 
+        class="w-auto max-w-xs filter-to-white mx-auto">
+</div>
 
                         <div class="flex justify-center items-center my-6">
                             <span class="h-px w-1/4 bg-gray-600"></span>
@@ -121,35 +149,28 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-3 gap-3 mb-10 text-center text-white" dir="rtl">
+                    <div class="flex justify-center items-start text-white my-10 font-beiruti" dir="rtl">
 
-                        <div class="p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <p class="text-base">ساعت</p>
-                            <p class="text-2xl font-semibold">۱۹:۰۰</p>
+                        <div class="flex flex-col items-center justify-center text-center px-4">
+                            <p class="text-xl text-gray-400">آذر</p>
+                            <p class="text-7xl font-bold mb-2 tracking-wider" style="color: #6d934e;">20</p>
+                            <p class="text-2xl text-gray-400">۱۴۰۴</p>
                         </div>
 
-                        <div class="p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                            <p class="text-base">تالار</p>
-                            <p class="text-2xl font-semibold">پارسیان</p>
-                        </div>
-
-                        <div class="p-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            <p class="text-base">پنجشنبه</p>
-                            <p class="text-2xl font-semibold">۲۳ آذر</p>
+                        <div class="text-right date-block-info">
+                            <p class="text-2xl mb-2">پنجشنبه</p>
+                            <p class="text-xl mb-4 text-gray-300">ساعت ۱۹ </p>
+<a href="https://maps.app.goo.gl/h5cFujUBAQavLckc7" target="_blank" class="flex items-center text-xl text-white hover:text-green-400 transition-colors mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                                در عمارت مجلل
+                            </a>                            <p class="text-xl text-gray-300">میزبانتان خواهیم بود.</p>
                         </div>
 
                     </div>
-
+<div class="h-10"></div>
                 </div>
             </div>
         </section>
